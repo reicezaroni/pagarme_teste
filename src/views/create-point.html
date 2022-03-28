@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8"><!-- Faz com que permita caracter especial-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--config de tela para varios tamanhos-->
+    <title>Criar um ponto de coleta</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+
+    <!-- se fosse colocar direto aqui, seria:
+    <style>
+        html{font-family: 'Roboto', sans-serif;}
+    </style>
+    -->
+    
+</head>
+<body>
+    
+    <div id="page-create-point">
+
+            {% include "partials/page-header.html" %}
+
+            <!-- Usando o metodo post do server, estou salvando os dados
+            do form no db pelo endereço /savepoint -->
+            <form action="/savepoint" method="POST">
+
+                <h1>Realize seu pagamento</h1>
+
+                <fieldset>
+                    <legend>
+                        <h2>Insira as informações abaixo</h2>
+                    </legend>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="name">Valor da compra</label>
+                            <input type="number" step="0.01" name="value" min="0.01" placeholder="R$" required>
+                        </div>
+                        <div class="field">
+                            <label for="name">Descrição do produto</label>
+                            <input 
+                                type="text" 
+                                name="desc"
+                                placeholder="Ex: Smartband XYZ 3.0" 
+                                required>
+                        </div>
+                    </div>
+                    
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="address">Numero do cartão</label>
+                            <input type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" name="card" required>
+                        </div>
+                        <div class="field">
+                            <label for="address2">Nome do portador</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        
+                    </div>
+
+                    <div class="field-group">
+
+                        <div class="field">
+                            <label for="state">Forma de pagamento</label>
+                            <select name="method" required>
+                                <option value="">Selecione a forma de pagamento</option>
+                                <option value="Débito">Débito</option>
+                                <option value="Crédito">Crédito</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="city">Data de validade</label>
+                            <input class="inputCard" name="date" type="month" required/>
+                           
+                            <div class="field">
+                                <label for="city">cvv</label>
+                                <input type="text" name="cvv" required>
+                            </div>
+
+                        </div>
+                        
+                        
+                    </div>
+
+                </fieldset>
+
+
+                <button type="submit">Confirma pagamento</button>
+
+            </form>
+            
+    </div>
+
+    {% if saved %}
+        {%include "partials/point-created.html"%}
+    {% endif %}
+
+    <script src="/scripts/create-point.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "pag_me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "author": "Reinaldo Cezaroni Netto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nunjucks": "^3.2.3",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

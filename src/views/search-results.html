@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8"><!-- Faz com que permita caracter especial-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--config de tela para varios tamanhos-->
+    <title>Resultado da Pesquisa</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/search-results.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+
+    
+</head>
+<body>
+    
+    <div id="page-search-results">
+
+            {% include "partials/page-header.html" %}
+
+        
+            <main>
+
+                {% if total > 0%}
+                    <h4>
+                        <strong>{{total}} Transações</strong> 
+                        encontradas
+                    </h4>
+
+
+                    <div class="cards">
+
+                        <!--pegando dado do db -->
+                       {% for valor in valores%}
+                                
+                       {% endfor %}
+
+                       <div class="card">
+                        <h1>Disponível</h1>
+                        <h2> <strong>R$</strong> {{paid}}</h2>
+                        <h1>A receber</h1>
+                        <h2><strong>R$</strong> {{waiting_funds}}</h2>
+                    </div>
+
+
+                    </div>
+
+                {%else%}
+
+                    <h4> <strong> Nenhum</strong> registro encontrado</h4>
+
+                {%endif%}
+
+                
+
+                
+
+            </main>
+            
+    
+
+    </div>
+
+</body>
+</html>
