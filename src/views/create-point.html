@@ -7,10 +7,10 @@
     <title>Criar um ponto de coleta</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/create-point.css">
-    <link rel="stylesheet" href="/styles/modal.css">
-    <link rel="stylesheet" href="/styles/responsive.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/create-point.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
 
     <!-- se fosse colocar direto aqui, seria:
     <style>
@@ -27,7 +27,7 @@
 
             <!-- Usando o metodo post do server, estou salvando os dados
             do form no db pelo endereço /savepoint -->
-            <form action="/savepoint" method="POST">
+            <form action="./savepoint" method="POST">
 
                 <h1>Realize seu pagamento</h1>
 
@@ -102,7 +102,7 @@
         {%include "partials/point-created.html"%}
     {% endif %}
 
-    <script src="/scripts/create-point.js"></script>
+    <script src="./scripts/create-point.js"></script>
 
 </body>
 </html>
